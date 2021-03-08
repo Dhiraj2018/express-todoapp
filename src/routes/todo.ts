@@ -1,16 +1,14 @@
 const fs = require('fs');
 var path = require('path');
-const db = require('../db/index');
-
+const db = require('../db/data.json');
+let toDoList=db;
 module.exports = {
 
     all:function(req:any, res:any){
-      let toDoList = db.readJSON;
 
         res.json(toDoList)
     },
     viewOne: function(req:any, res:any){
-      let toDoList = db.readJSON;
       let id=Number(req.params.id);
         let index =toDoList.findIndex(x=> Number(x.id)===id);
         res.send(toDoList[index]);
